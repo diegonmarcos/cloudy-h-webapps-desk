@@ -781,10 +781,10 @@
                 "web_icon": "sa/ic_p_sol_pro"
               },
               {
-                "id": "sim2real",
-                "label": "Sim2Real",
+                "id": "biomed",
+                "label": "BioMed",
                 "icon": "ic_p_sol_tools",
-                "target": "extapp:hardtech-sim2real",
+                "target": "extapp:hardtech-biomed",
                 "web_icon": "sa/ic_p_sol_tools"
               }
             ]
