@@ -72,7 +72,10 @@ test('cloud-nav: maps is merged in (the globe draws in the content pane), naviga
   await expect(page.getByTestId('desk-window')).toHaveAttribute('data-src', '/mymaps-navigation/');
 });
 
+// the LAST deep page of the longest tree (cloud-search), read from routes.json so a tree reorg never leaves a dead path here
+const deepLast = [...routes].reverse().find((p) => p.startsWith('cloud-search/') && p.split('/').filter(Boolean).length >= 3)!;
 test('a deep page in a long tree is scrolled into view', async ({ page }) => {
-  await page.goto(`${D}/cloud-search/brokers/suppliers/`);
+  expect(deepLast, 'routes.json has a deep cloud-search page').toBeTruthy();
+  await page.goto(`${D}/${deepLast}`);
   await expect(page.getByTestId('desk-tree').locator('[aria-current="page"]')).toBeInViewport();
 });
